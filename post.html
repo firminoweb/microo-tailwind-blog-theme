@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html 
+  lang="en"
+  class="scroll-smooth"
+  x-data="{ darkMode: localStorage.getItem('dark') === 'true'} "
+  x-init="$watch('darkMode', val => localStorage.setItem('dark', val))"
+  x-bind:class="{ 'dark': darkMode }"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <title>
+      Post – Microo
+    </title>
+
+    <link
+      rel="shortcut icon"
+      href="assets/images/favicon.png"
+      type="image/x-icon"
+    />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+
+    <link rel="stylesheet" href="assets/css/microo.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"/>
+
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+  </head>
+
+  <body class="dark:bg-blue-900">
+    <!-- ====== Navigation content Start -->
+    <header class="container mx-auto px-8 max-w-4xl text-blue-900 dark:text-blue-200">
+      <div class="py-6 lg:py-10 mx-auto md:flex-row">
+          <div class="flex flex-col flex-wrap items-center py-5 border-t border-b border-blue-200 dark:border-blue-700 md:flex-row">
+              <nav class="flex flex-wrap items-center text-base lg:w-2/5 md:ml-auto">
+                  <a href="index.html" class="mr-5 font-semibold leading-6 text-blue-900 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-600">Home</a>
+                  <a href="blog.html" class="mr-5 font-semibold leading-6 text-blue-900 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-600">Blog</a>
+                  <a href="page.html" class="mr-5 font-semibold leading-6 text-blue-900 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-600">Page</a>
+                  <a href="contact.html" class="mr-5 font-semibold leading-6 text-blue-900 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-600">Contact</a>
+              </nav>
+
+              <a href="#_" class="flex items-center order-first mb-4 font-medium text-blue-800 lg:order-none lg:w-1/5 title-font lg:items-center lg:justify-center md:mb-0">
+                <img src="assets/images/microo-logo.png" class="h-6">
+              </a>
+
+              <div class="inline-flex items-center ml-5 space-x-6 lg:w-2/5 lg:justify-end lg:ml-0">
+                  <span class="inline-flex justify-center mt-4 space-x-5 md:ml-auto md:mt-0 md:justify-start">
+                      <a href="#" class="text-blue-900 hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-200">
+                          <span class="sr-only">Facebook</span>
+                          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path></svg>
+                      </a>
+  
+                      <a href="#" class="text-blue-900 hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-200">
+                          <span class="sr-only">Twitter</span>
+                          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg>
+                      </a>
+  
+                      <a href="#" class="text-blue-900 hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-200">
+                          <span class="sr-only">GitHub</span>
+                          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+                      </a>
+
+                      <button type="button" class="ml-2 bg-blue-50 dark:bg-blue-800 text-indigo-500 dark:text-blue-100 border border-blue-500 dark:border-blue-700 p-1 rounded-full" @click="darkMode = !darkMode">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4" x-show="darkMode">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+                        </svg>
+                        
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4" x-show="!darkMode">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+                        </svg>                
+                      </button>
+                  </span>
+              </div>
+          </div>
+      </div>
+    </header>
+    <!-- ====== Navigation content End -->
+
+    <section class="container mx-auto px-8 py-12 max-w-4xl border-b border-blue-200 dark:border-blue-700">
+        <a href="#" class="bg-green-600 items-center mb-2 px-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block transition duration-300 hover:translate-x-2"><span>Lifestyle</span></a>
+
+        <h1 class="text-4xl mb-2 font-extrabold text-blue-900 dark:text-blue-300 xl:text-5xl">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit lalale.
+        </h1>
+
+        <div class="flex items-center mb-4">
+            <p class="text-md text-gray-400 dark:text-blue-500">
+              November 17, 2022
+            </p>
+            <span class="pl-2 text-lg font-semibold text-gray-400 dark:text-blue-500">·</span>
+            <p class="pl-2 text-md text-gray-400 dark:text-blue-500">
+              4 min read
+            </p>
+        </div>
+
+        <img src="assets/images/posts/post_832x.jpg" loading="lazy" class="object-cover object-center w-full max-h-96">
+    </section>
+
+    <section class="container mx-auto px-8 py-12 mb-12 max-w-4xl border-b border-blue-200 dark:border-blue-700">
+        <p class="mb-8 font-body text-xl font-light text-gray-600 dark:text-gray-100">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt illum aliquid facilis cupiditate, aspernatur quae sapiente tenetur quibusdam eos quam accusantium dignissimos ipsam sit. Unde id non sint facilis dolorem!
+        </p>
+
+        <p class="mb-8 font-body text-xl font-light text-gray-600 dark:text-gray-100">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt illum aliquid facilis cupiditate, aspernatur quae sapiente tenetur quibusdam eos quam accusantium dignissimos ipsam sit. Unde id non sint facilis dolorem!
+        </p>
+
+        <h2 class="text-3xl font-extrabold text-blue-900 dark:text-blue-300 xl:text-4xl">Sample Code:</h2>
+
+        <div class="mb-12">
+ 
+        <pre class="highlight">
+        <code class="hljs javascript">
+        <span class="kd"><span class="hljs-keyword">const</span></span> <span class="nx">btn</span> <span class="o">=</span> <span class="nb"><span class="hljs-built_in">document</span></span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl"><span class="hljs-string">'</span></span><span class="s1"><span class="hljs-string">btn</span></span><span class="dl"><span class="hljs-string">'</span></span><span class="p">)</span>
+        <span class="kd"><span class="hljs-keyword">let</span></span> <span class="nx">count</span> <span class="o">=</span> <span class="mi"><span class="hljs-number">0</span></span>
+
+        <span class="kd"><span class="hljs-function"><span class="hljs-keyword">function</span></span></span><span class="hljs-function"> </span><span class="nx"><span class="hljs-function"><span class="hljs-title">render</span></span></span><span class="p"><span class="hljs-function">(<span class="hljs-params"></span>)</span></span><span class="hljs-function"> </span><span class="p">{</span>
+            <span class="nx">btn</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">=</span> <span class="s2"><span class="hljs-string">`Count: </span></span><span class="p"><span class="hljs-string"><span class="hljs-subst">${</span></span></span><span class="nx"><span class="hljs-string"><span class="hljs-subst">count</span></span></span><span class="p"><span class="hljs-string"><span class="hljs-subst">}</span></span></span><span class="s2"><span class="hljs-string">`</span></span>
+        <span class="p">}</span>
+
+        <span class="nx">btn</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl"><span class="hljs-string">'</span></span><span class="s1"><span class="hljs-string">click</span></span><span class="dl"><span class="hljs-string">'</span></span><span class="p">,</span> <span class="p"><span class="hljs-function">()</span></span><span class="hljs-function"> </span><span class="o"><span class="hljs-function">=&gt;</span></span> <span class="p">{</span>
+            <span class="c1"><span class="hljs-comment">// Count from 1 to 10.</span></span>
+            <span class="k"><span class="hljs-keyword">if</span></span> <span class="p">(</span><span class="nx">count</span> <span class="o">&lt;</span> <span class="mi"><span class="hljs-number">10</span></span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">count</span> <span class="o">+=</span> <span class="mi"><span class="hljs-number">1</span></span>
+                <span class="nx">render</span><span class="p">()</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        </code></pre>
+        </div>
+
+        <p class="mb-8 font-body text-xl font-light text-gray-600 dark:text-gray-100">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt illum aliquid facilis cupiditate, aspernatur quae sapiente tenetur quibusdam eos quam accusantium dignissimos ipsam sit. Unde id non sint facilis dolorem!
+        </p>
+
+        <h2 class="text-3xl mb-8 font-extrabold text-blue-900 dark:text-blue-300 xl:text-4xl">Blockquotes</h2>
+
+        <blockquote class="p-4 my-4 border-l-4 border-gray-300 bg-gray-50 dark:border-blue-500 dark:bg-blue-800 mb-8">
+            <p class="text-xl italic font-medium leading-relaxed text-gray-900 dark:text-white">"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet amet consequatur suscipit? Deleniti, minima ea harum omnis exercitationem nam cupiditate neque hic beatae totam voluptatibus accusantium, minus vero odio nemo?"</p>
+        </blockquote>
+
+        <blockquote class="text-xl italic font-semibold text-gray-900 dark:text-white mb-8">
+            <svg aria-hidden="true" class="w-10 h-10 text-gray-400 dark:text-blue-600" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z" fill="currentColor"></path></svg>
+            <p>"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet amet consequatur suscipit? Deleniti, minima ea harum omnis exercitationem nam cupiditate neque hic beatae totam voluptatibus accusantium, minus vero odio nemo?"</p>
+        </blockquote>
+
+        <h2 class="text-3xl mb-8 font-extrabold text-blue-900 dark:text-blue-300 xl:text-4xl">
+            Images & Videos
+        </h2>
+
+        <p class="mb-8 font-body text-xl font-light text-gray-600 dark:text-gray-100">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt illum aliquid facilis cupiditate, aspernatur quae sapiente tenetur quibusdam eos quam accusantium dignissimos ipsam sit. Unde id non sint facilis dolorem!
+        </p>
+
+        <h3 class="text-2xl mb-8 font-extrabold text-blue-900 dark:text-blue-300 xl:text-3xl">
+            Single Image
+        </h3>
+
+        <figure class="max-w-lg mx-auto mb-12 bg-gray-50 dark:bg-blue-800 pb-1 scale">
+            <a href="assets/images/posts/post02.jpg" class="glightbox">  
+              <img class="h-auto max-w-full shadow-sm transition duration-300 ease-in-out hover:opacity-50 hover:scale-105" src="assets/images/posts/post02.jpg" alt="image description">
+            </a>
+
+            <figcaption class="my-2 text-sm text-center text-gray-500 dark:text-gray-200">Single Image</figcaption>
+        </figure>
+
+        <h3 class="text-2xl mb-8 font-extrabold text-blue-900 dark:text-blue-300 xl:text-3xl">
+            Image Gallery
+        </h3>
+
+        <section class="overflow-hidden text-gray-700 mb-8 scale">
+            <div class="container py-2 mx-auto ">
+              <div class="flex flex-wrap -m-1 md:-m-2">
+                <div class="flex flex-wrap w-1/3">
+                  <div class="w-full p-1 md:p-2">
+                    <a href="assets/images/featured/featured-post01.jpg" class="glightbox" data-gallery="gallery1">
+                      <img alt="gallery" class="block object-cover object-center w-full h-full transition duration-300 ease-in-out hover:opacity-50 hover:scale-105" src="assets/images/featured/featured-post01.jpg">
+                    </a>
+                  </div>
+                </div>
+                <div class="flex flex-wrap w-1/3">
+                  <div class="w-full p-1 md:p-2">
+                    <a href="assets/images/featured/featured-post02.jpg" class="glightbox" data-gallery="gallery1">
+                      <img alt="gallery" class="block object-cover object-center w-full h-full transition duration-300 ease-in-out hover:opacity-50 hover:scale-105" src="assets/images/featured/featured-post02.jpg">
+                    </a>
+                  </div>
+                </div>
+                <div class="flex flex-wrap w-1/3">
+                  <div class="w-full p-1 md:p-2">
+                    <a href="assets/images/featured/featured-post03.jpg" class="glightbox" data-gallery="gallery1">
+                      <img alt="gallery" class="block object-cover object-center w-full h-full transition duration-300 ease-in-out hover:opacity-50 hover:scale-105" src="assets/images/featured/featured-post03.jpg">
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </section>
+
+        <h3 class="text-2xl mb-8 font-extrabold text-blue-900 dark:text-blue-300 xl:text-3xl">
+            Video
+        </h3>
+
+        <figure class="max-w-lg mx-auto mb-8 bg-gray-50 dark:bg-blue-800 pb-1 scale">
+            <a href="https://www.youtube.com/watch?v=lHZwlzOUOZ4" class="glightbox">  
+              <img class="h-auto max-w-full shadow-sm transition duration-300 ease-in-out hover:opacity-50 hover:scale-105" src="assets/images/posts/video01.png" alt="image description">
+            </a>
+            <figcaption class="my-2 text-sm text-center text-gray-500 dark:text-gray-200">Vídeo Sample</figcaption>
+        </figure>
+
+        <p class="mb-8 font-body text-xl font-light text-gray-600 dark:text-gray-100">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt illum aliquid facilis cupiditate, aspernatur quae sapiente tenetur quibusdam eos quam accusantium dignissimos ipsam sit. Unde id non sint facilis dolorem!
+        </p>
+
+    </section>
+
+    <section class="container mx-auto px-8 text-center pb-12 mb-12 max-w-4xl border-b border-blue-200 dark:border-blue-700">
+        <span class="uppercase space-bold font-semibold text-gray-500 dark:text-gray-200 text-lg">share this post</span>
+
+        <div class="relative mx-auto flex sm:px-0 px-10 flex-col items-start sm:items-center justify-center">
+            <div class="grid grid-cols-3 md:grid-cols-5 gap-6 mt-4">
+              <div class="h-12 w-12 bg-blue-50 dark:bg-blue-800 rounded-2xl hover:scale-125 transition-all ease-out cursor-pointer duration-200 border border-gray-200 dark:border-blue-600 flex items-center justify-center">
+                <svg viewBox="0 0 24 24" class="w-8 h-8 fill-blue-800 dark:fill-blue-300"><path fill="none" d="M0 0h24v24H0z"></path><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"></path></svg>
+              </div>
+  
+              <div class="h-12 w-12 bg-blue-50 dark:bg-blue-800 rounded-2xl hover:scale-125 transition-all ease-out cursor-pointer duration-200 border border-gray-200 dark:border-blue-600 flex items-center justify-center">
+                <svg viewBox="0 0 24 24" class="w-8 h-8 fill-blue-800 dark:fill-blue-300"><path fill="none" d="M0 0h24v24H0z"></path><path d="M22.162 5.656a8.384 8.384 0 0 1-2.402.658A4.196 4.196 0 0 0 21.6 4c-.82.488-1.719.83-2.656 1.015a4.182 4.182 0 0 0-7.126 3.814 11.874 11.874 0 0 1-8.62-4.37 4.168 4.168 0 0 0-.566 2.103c0 1.45.738 2.731 1.86 3.481a4.168 4.168 0 0 1-1.894-.523v.052a4.185 4.185 0 0 0 3.355 4.101 4.21 4.21 0 0 1-1.89.072A4.185 4.185 0 0 0 7.97 16.65a8.394 8.394 0 0 1-6.191 1.732 11.83 11.83 0 0 0 6.41 1.88c7.693 0 11.9-6.373 11.9-11.9 0-.18-.005-.362-.013-.54a8.496 8.496 0 0 0 2.087-2.165z"></path></svg> 
+              </div>
+  
+              <div class="h-12 w-12 bg-blue-50 dark:bg-blue-800 rounded-2xl hover:scale-125 transition-all ease-out cursor-pointer duration-200 border border-gray-200 dark:border-blue-600 flex items-center justify-center">
+                <svg viewBox="0 0 24 24" class="w-8 h-8 fill-blue-800 dark:fill-blue-300"><path fill="none" d="M0 0h24v24H0z"></path><path d="M18.335 18.339H15.67v-4.177c0-.996-.02-2.278-1.39-2.278-1.389 0-1.601 1.084-1.601 2.205v4.25h-2.666V9.75h2.56v1.17h.035c.358-.674 1.228-1.387 2.528-1.387 2.7 0 3.2 1.778 3.2 4.091v4.715zM7.003 8.575a1.546 1.546 0 0 1-1.548-1.549 1.548 1.548 0 1 1 1.547 1.549zm1.336 9.764H5.666V9.75H8.34v8.589zM19.67 3H4.329C3.593 3 3 3.58 3 4.297v15.406C3 20.42 3.594 21 4.328 21h15.338C20.4 21 21 20.42 21 19.703V4.297C21 3.58 20.4 3 19.666 3h.003z"></path></svg>
+              </div>
+  
+              <div class="h-12 w-12 bg-blue-50 dark:bg-blue-800 rounded-2xl hover:scale-125 transition-all ease-out cursor-pointer duration-200 border border-gray-200 dark:border-blue-600 flex items-center justify-center">
+                <svg viewBox="0 0 24 24" class="w-8 h-8 fill-blue-800 dark:fill-blue-300"><path fill="none" d="M0 0h24v24H0z"></path><path d="M13.37 2.094A10.003 10.003 0 0 0 8.002 21.17a7.757 7.757 0 0 1 .163-2.293c.185-.839 1.296-5.463 1.296-5.463a3.739 3.739 0 0 1-.324-1.577c0-1.485.857-2.593 1.923-2.593a1.334 1.334 0 0 1 1.342 1.508c0 .9-.578 2.262-.88 3.54a1.544 1.544 0 0 0 1.575 1.923c1.898 0 3.17-2.431 3.17-5.301 0-2.2-1.457-3.848-4.143-3.848a4.746 4.746 0 0 0-4.93 4.794 2.96 2.96 0 0 0 .648 1.97.48.48 0 0 1 .162.554c-.046.184-.162.623-.208.784a.354.354 0 0 1-.51.254c-1.384-.554-2.036-2.077-2.036-3.816 0-2.847 2.384-6.255 7.154-6.255 3.796 0 6.32 2.777 6.32 5.747 0 3.909-2.177 6.848-5.394 6.848a2.861 2.861 0 0 1-2.454-1.246s-.578 2.316-.692 2.754a8.026 8.026 0 0 1-1.019 2.131c.923.28 1.882.42 2.846.416a9.988 9.988 0 0 0 9.996-10.003 10.002 10.002 0 0 0-8.635-9.903z"></path>
+                </svg>
+              </div>
+  
+              <div class="h-12 w-12 bg-blue-50 dark:bg-blue-800 rounded-2xl hover:scale-125 transition-all ease-out cursor-pointer duration-200 border border-gray-200 dark:border-blue-600 flex items-center justify-center">
+                <svg viewBox="0 0 24 24" class="w-8 h-8 fill-blue-800 dark:fill-blue-300"><path fill="none" d="M0 0h24v24H0z"></path><path d="M7 6V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-3v3c0 .552-.45 1-1.007 1H4.007A1.001 1.001 0 0 1 3 21l.003-14c0-.552.45-1 1.007-1H7zm2 0h8v10h2V4H9v2z"></path></svg>
+              </div>
+            </div>
+          </div>
+    </section>
+
+    <section class="container mx-auto px-8 text-center pb-12 max-w-4xl border-b border-blue-200 dark:border-blue-700">
+      <div class="flex flex-col sm:items-center lg:items-start justify-between lg:flex-row">
+        <div class="relative mb-4 lg:mb-0">
+            <h2 class="text-3xl font-extrabold text-blue-900 dark:text-blue-300 xl:text-4xl">Subscribe to new posts</h2>
+            <p class="mt-2 text-md text-gray-300">Subscribe now to get notified about excluive posts.</p>
+        </div>
+
+        <div class="relative flex items-center max-w-md leading-6 text-center">
+          <input type="text" placeholder="Your e-mail" class="w-full py-4 pr-0 m-0 overflow-visible font-medium duration-300 border-2 border-blue-400 dark:border-blue-700 outline-none sm:py-5 sm:pr-48 cursor-text pl-7 focus:outline-none focus-within:border-blue-400 hover:border-blue-200 text-blue-700 dark:text-blue-300 dark:bg-blue-800 placeholder-blue-500" data-rounded="rounded-full">
+
+          <button class="absolute right-0 h-12 px-8 mr-2 md:mr-3 text-white bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 focus:outline-none transition duration-150 ease-in-out font-semibold" data-rounded="rounded-full" data-primary="blue-700">Subscribe</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="container mx-auto px-8 max-w-4xl">
+      <div class="flex flex-col items-center py-8 mx-auto max-w-7xl sm:flex-row">
+          <a href="#_" class="text-xl font-black leading-none text-blue-900 dark:text-blue-300 select-none logo">Microo</a>
+          <p class="mt-4 text-sm text-blue-600 dark:text-blue-300 sm:ml-4 sm:pl-4 sm:border-l sm:border-gray-200 sm:mt-0">©2023 Tailwind CSS Blog Theme
+          </p>
+          <span class="inline-flex justify-center mt-4 space-x-5 sm:ml-auto sm:mt-0 sm:justify-start">
+            <a href="#" class="text-blue-900 hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-200">
+              <span class="sr-only">Facebook</span>
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path></svg>
+            </a>
+
+            <a href="#" class="text-blue-900 hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-200">
+              <span class="sr-only">Twitter</span>
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg>
+            </a>
+
+            <a href="#" class="text-blue-900 hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-200">
+              <span class="sr-only">GitHub</span>
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+            </a>
+          </span>
+      </div>
+    </footer>
+
+    <!-- Javascript + AlpineJS Library -->
+    <script defer src="assets/js/microo.js"></script>
+  </body>
+</html>

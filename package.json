@@ -1,0 +1,36 @@
+{
+  "name": "tribo-microo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "start": "webpack serve",
+    "build": "npm run css && npm run js",
+    "css": "tailwindcss -i ./src/css/microo.css -o ./assets/css/microo.css --minify",
+    "js": "webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/preset-env": "^7.18.10",
+    "autoprefixer": "10.4.8",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.5",
+    "prettier": "^2.8.1",
+    "prettier-plugin-tailwindcss": "^0.2.1",
+    "terser-webpack-plugin": "^5.3.3",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1"
+  },
+  "dependencies": {
+    "@alpinejs/intersect": "^3.10.5",
+    "@tailwindcss/forms": "^0.5.3",
+    "@tailwindcss/line-clamp": "^0.4.2",
+    "@tailwindcss/typography": "^0.5.8",
+    "alpinejs": "^3.10.5",
+    "glightbox": "^3.2.0",
+    "tailwindcss": "^3.2.4"
+  }
+}
