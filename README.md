@@ -19,3 +19,11 @@ Microo is a Tailwind CSS Blog theme, crafted for Microblogging and/or Personal p
 * @alpinejs
 * glightbox (lightbox for photos & videos)
 * highlight.js (for Code)
+
+## Buy me a Coffee
+It's free, open! but, if you can buy me a coffee, I'll be very grateful
+Enjoy here with your donation -> [Microo on Gumroad](https://firminodev.gumroad.com/l/microo-tailwindcss-blog-theme)
+
+## Meet Blogg, my paid theme
+* [Blogg - Tailwind CSS Blog Theme ($9.90)](https://firminodev.gumroad.com/l/tailwindcss-blog-theme)
+
